@@ -1,0 +1,27 @@
+{% extends 'layouts/_base.html' %}
+
+
+{% block title %}
+    Draw Menu List
+{% endblock title %}
+
+{% block stylesheet %}
+<style>
+    ul {
+        list-style-type: none;
+        padding-left: 20px;
+    }
+    .active a {
+        font-weight: bold;
+        color: red;
+    }
+</style>
+{% endblock stylesheet %}
+
+{% block content %}
+<h1>Menu List</h1>
+{% load menu_tags %}
+
+{% draw_menu 'main_menu' %}
+
+{% endblock content %}

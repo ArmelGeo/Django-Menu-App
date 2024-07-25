@@ -1,0 +1,14 @@
+{% extends 'layouts/_base.html' %}
+{% block content %}
+<ul>
+    {% for item in menu_items %}
+        {% if item.parent_id == parent_id %}
+            <li>
+                <a href="{{ item.get_url }}" class="{% if item.get_url == current_url %}active{% endif %}">{{ item.title }}</a>
+                {% include "menu/sub_menu.html" with parent_id=item.id %}
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+
+{% endblock content %}
